@@ -235,6 +235,7 @@ post '/attach_payment_method_to_customer' do
         customer: customer.id,
         expand: ["customer"],
     })
+    
   rescue Stripe::StripeError => e
     status 402
     return log_info("Error attaching PaymentMethod to Customer! #{e.message}")
